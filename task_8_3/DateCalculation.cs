@@ -8,7 +8,7 @@ namespace task_8_3
 {
     class DateCalculation
     {
-        public int[] DateToNumber(string date)
+        public static int[] DateToNumber(string date)
         {
             date.Split('.');
             int[] arrDate = new int[3];
@@ -21,12 +21,12 @@ namespace task_8_3
             return CheackDate(arrDate) ? arrDate : ErrorDate; 
         }
 
-        bool CheackDate(int[] arrDate)
+        private static bool CheackDate(int[] arrDate)
         {
             return arrDate[2] > 0 && arrDate[1] >= 12 && arrDate[1] > 0 && arrDate[0] > 0 && arrDate[0] <= AmountDays(arrDate[1], arrDate[2]);
         }
 
-        public static int AmountDays(int mouth, int year)
+        private static int AmountDays(int mouth, int year)
         {
             switch (mouth)
             {
@@ -50,6 +50,11 @@ namespace task_8_3
                     return 0;
 
             }
+        }
+
+        public static bool IsInDates (int[]date1, int[]checkDate, int[]date2)
+        {
+            return false; 
         }
 
     }
