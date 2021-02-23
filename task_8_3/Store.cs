@@ -14,15 +14,19 @@ namespace task_8_3
     class Store
     {
         private List<Product> products = new List<Product>();
-        private Dictionary<int, int> dateOfOperations = new Dictionary<int, int>(); 
+        public int Money { set; get; }
 
-        public void AddNewProducts(List<Product> products)
+        public void BuyNewProducts(List<Product> products, string date)
         {
-
             foreach (var item in products)
             {
+                item.PurchaseDate = date; 
                 this.products.Add(item);
             }
+        }
+        public void SellProducts(List<Product> products, string date)
+        {
+
         }
 
     }
