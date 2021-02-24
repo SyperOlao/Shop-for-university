@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace task_8_3
+﻿namespace task_8_3
 {
     class DateCalculation
     {
@@ -54,7 +48,12 @@ namespace task_8_3
 
         public static bool IsInDates (int[]date1, int[]checkDate, int[]date2)
         {
-            return false; 
+            return date1[2] <= checkDate[2] && checkDate[2] >= date2[2] &&
+                   date1[1] <= checkDate[1] && checkDate[1] >= date2[1] &&
+                   date1[0] <= checkDate[0] && checkDate[0] >= date2[0] ||
+                   date1[2] >= checkDate[2] && checkDate[2] <= date2[2] &&
+                   date1[1] >= checkDate[1] && checkDate[1] <= date2[1] &&
+                   date1[0] >= checkDate[0] && checkDate[0] <= date2[0];
         }
 
     }

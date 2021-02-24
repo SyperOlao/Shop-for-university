@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 
 /*Предусмотреть возможность
 выполнения следующих операций: реализация товара(партии товаров) с указанием
@@ -35,13 +36,26 @@ namespace task_8_3
             this.date.Add(new Date(money, date)); 
         }
 
-        public int Revenue(string data1, string data2) //Выручка по периодам 
+        public int Revenue(string date1, string date2) //Выручка по периодам 
         {
             int revenue = 0;
-
+            foreach (var item in date)
+            {
+                if (DateCalculation.IsInDates(DateCalculation.DateToNumber(date1), DateCalculation.DateToNumber(item.DateOfOperation), DateCalculation.DateToNumber(date2))){
+                    revenue += item.Money;
+                }
+            }
             return revenue;
         }
-
+        
+        public Store(string path)
+        {
+            string[] fileString = File.ReadAllLines(path);
+            foreach (var item in fileString)
+            {
+                /*products.Add(new Product())*/
+            }
+        }
 
     }
 }
