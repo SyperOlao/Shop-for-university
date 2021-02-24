@@ -50,12 +50,17 @@ namespace task_8_3
         
         public Store(string path)
         {
-            string[] fileString = File.ReadAllLines(path);
-            foreach (var item in fileString)
+            Product temp = new Product();
+            string[] file = File.ReadAllLines(path);
+            for (int i = 0; i < file.Length-3; i+=3)
             {
-                /*products.Add(new Product())*/
+                products.Add(new Product(file[i], int.Parse(file[i+1]), int.Parse(file[i+2])));
             }
         }
 
+        public List<Product> GetProducts()
+        {
+            return products; 
+        }
     }
 }
