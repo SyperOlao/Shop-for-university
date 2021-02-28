@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace task_8_3
 {
-    public partial class Form1 : Form
+    public partial class Shop : Form
     {
         Store store = new Store("store.txt");
 
-        public Form1()
+        public Shop()
         {
             InitializeComponent();
         }
