@@ -40,6 +40,10 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -85,6 +89,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(181, 22);
             this.textBox3.TabIndex = 4;
+            this.textBox3.Text = "22.05.2020";
             // 
             // textBox4
             // 
@@ -92,6 +97,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(181, 22);
             this.textBox4.TabIndex = 5;
+            this.textBox4.Text = "7.06.2020";
             // 
             // textBox5
             // 
@@ -120,6 +126,7 @@
             this.button2.TabIndex = 8;
             this.button2.Text = "Продать";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -129,6 +136,7 @@
             this.button3.TabIndex = 9;
             this.button3.Text = "Прибыль";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label3
             // 
@@ -150,11 +158,53 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Конец промежутка:";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(548, 378);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 18);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Доход:";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(273, 283);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(192, 22);
+            this.textBox6.TabIndex = 13;
+            this.textBox6.Text = "4.06.2020";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(270, 262);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(116, 18);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Дата операции:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(270, 308);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(180, 18);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Формат даты (д.мм.гггг)";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button3);
@@ -189,6 +239,10 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }
 

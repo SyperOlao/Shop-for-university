@@ -1,10 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 
-/*Предусмотреть возможность
-выполнения следующих операций: реализация товара(партии товаров) с указанием
-даты совершения операции, подсчета выручки за указанный период времени,
-поступления новой партии товара.*/
+
 
 namespace task_8_3
 {
@@ -13,33 +10,35 @@ namespace task_8_3
         private List<Product> products = new List<Product>();
         private List<Date> date = new List<Date>();
 
-        public void BuyNewProducts(List<Product> products, string date)
+        public void BuyNewProducts(Product product, string date)
         {
             int money = 0;
-            foreach (var item in products)
-            {
-                this.products.Add(item);
-                money -= item.WholesalePrice; 
-            }
-
+            products.Add(product);
+            money -= product.WholesalePrice; 
             this.date.Add(new Date(money, date)); 
         }
 
-        public void SellProducts(List<Product> products, string date)
+        public void SellProducts(string product, string date)
         {
-            int money = 0;
-            foreach (var item in products)
+            int money = 0; 
+            
+            foreach (var pr in products)
             {
-                this.products.Remove(item);
-                money += item.MarketPrice; 
+                if (pr.Name.Equals(product))
+                {
+                    money += pr.MarketPrice;
+                    products.Remove(pr);
+                    break;
+                }
             }
             this.date.Add(new Date(money, date)); 
         }
 
-        public int Revenue(string date1, string date2) //Выручка по периодам 
+        //Выручка по периодам
+        public int Revenue(string date1, string date2)  
         {
             int revenue = 0;
-            foreach (var item in date)
+            foreach (Date item in date)
             {
                 if (DateCalculation.IsInDates(DateCalculation.DateToNumber(date1), DateCalculation.DateToNumber(item.DateOfOperation), DateCalculation.DateToNumber(date2))){
                     revenue += item.Money;
@@ -50,9 +49,8 @@ namespace task_8_3
         
         public Store(string path)
         {
-            Product temp = new Product();
             string[] file = File.ReadAllLines(path);
-            for (int i = 0; i < file.Length-3; i+=3)
+            for (int i = 0; i < file.Length; i+=3)
             {
                 products.Add(new Product(file[i], int.Parse(file[i+1]), int.Parse(file[i+2])));
             }
