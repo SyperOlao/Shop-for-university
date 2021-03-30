@@ -127,9 +127,9 @@
             this.label2.Location = new System.Drawing.Point(202, 23);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(191, 15);
+            this.label2.Size = new System.Drawing.Size(196, 15);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Какие  ПАРТИИ  товары хотите";
+            this.label2.Text = "Какие  ПАРТИИ  товаров хотите";
             // 
             // button2
             // 

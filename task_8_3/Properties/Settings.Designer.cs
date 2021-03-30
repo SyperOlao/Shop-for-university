@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace task_8_3.Properties
+namespace Store.Properties
 {
 
 

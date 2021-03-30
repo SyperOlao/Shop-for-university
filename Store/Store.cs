@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using Store;
 
 
-namespace task_8_3
+
+namespace Store
 {
-    class Store
+    public class Store
     {
         private List<Product> products = new List<Product>();
         private List<Date> date = new List<Date>();
