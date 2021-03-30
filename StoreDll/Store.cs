@@ -2,8 +2,7 @@
 using System.IO;
 
 
-
-namespace Store
+namespace StoreDll
 {
     public class Store
     {

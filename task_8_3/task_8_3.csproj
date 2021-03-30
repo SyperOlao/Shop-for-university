@@ -84,9 +84,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Store\Store.csproj">
-      <Project>{ce2f2fd8-7d11-49ea-b2ff-9fff9f8ef8fc}</Project>
-      <Name>Store</Name>
+    <ProjectReference Include="..\StoreDll\StoreDll.csproj">
+      <Project>{e99b5ee3-c784-4ac4-8d19-39792768ea54}</Project>
+      <Name>StoreDll</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
