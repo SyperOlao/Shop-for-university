@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using StoreDll;
 
 
 namespace task_8_3
@@ -8,11 +7,6 @@ namespace task_8_3
     public partial class Shop : Form
     {
         Store store = new Store("store.txt");
-        
-        public Shop(Store store)
-        {
-            this.store = store;
-        }
 
         public Shop()
         {
