@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 /*Класс Store – набор объектов класса Product, экземпляры которого описывают
 товары, предлагаемые к продаже. В числе полей класса Product должны
@@ -20,13 +21,20 @@ namespace task_8_3
     {
         private List<Product> products = new List<Product>();
         private List<Date> date = new List<Date>();
+        public int Money  { set; get; }
 
         public void BuyNewProducts(Product product, string date)
         {
             int money = 0;
             products.Add(product);
             money -= product.WholesalePrice; 
+            Money -= product.WholesalePrice;
             this.date.Add(new Date(money, date)); 
+        }
+
+        public void SortByName()
+        {
+
         }
 
         public void SellProducts(string product, string date)
@@ -38,6 +46,7 @@ namespace task_8_3
                 if (pr.Name.Equals(product))
                 {
                     money += pr.MarketPrice;
+                    Money -= pr.WholesalePrice;
                     products.Remove(pr);
                     break;
                 }
@@ -58,10 +67,11 @@ namespace task_8_3
             return revenue;
         }
 
-        public Store(string path)
+        public Store(string path, int Money)
         {
+            this.Money = Money;
             string[] file = File.ReadAllLines(path);
-            for (int i = 0; i < file.Length; i += 3)
+            for (int i = 0; i < file.Length; i += 7)
             {
                 // int Id, string Name, int MarketPrice, int WholesalePrice, string Category, int Quantity, string Unit
                 products.Add(new Product(int.Parse(file[i]), file[i + 1], int.Parse(file[i + 2]), int.Parse(file[i + 3]), file[i + 4], int.Parse(file[i + 5]), file[i + 6]));

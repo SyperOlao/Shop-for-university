@@ -6,7 +6,7 @@ namespace task_8_3
 {
     public partial class Shop : Form
     {
-        Store store = new Store("store.txt");
+        Store store = new Store("store.txt", 2700);
 
         public Shop()
         {
@@ -17,9 +17,9 @@ namespace task_8_3
         private void button1_Click(object sender, System.EventArgs e)
         {
             string [] strProd = textBox2.Text.Split(' ');
-            for (int i = 0; i < strProd.Length; i += 3)
+            for (int i = 0; i < strProd.Length; i += 7)
             {
-                store.BuyNewProducts(new Product(strProd[i], int.Parse(strProd[i + 1]), int.Parse(strProd[i + 2])), textBox6.Text);  
+                store.BuyNewProducts(new Product(int.Parse(strProd[i]), strProd[i + 1], int.Parse(strProd[i + 2]), int.Parse(strProd[i + 3]), strProd[i + 4], int.Parse(strProd[i + 5]), strProd[i + 6]), textBox6.Text);  
             }
             ShowInfo(sender, e);
         }
@@ -39,6 +39,8 @@ namespace task_8_3
                 textBox1.Text += "\nНаименование: " + prod.Name + Environment.NewLine;
                 textBox1.Text += "\nРыночная цена: " + prod.MarketPrice + Environment.NewLine;
                 textBox1.Text += "\nОптовая цена: " + prod.WholesalePrice + Environment.NewLine;
+                textBox1.Text += "\nКатегория: " + prod.Category + Environment.NewLine;
+                textBox1.Text += "\nОбъем товара: " + prod.Quantity +" "+prod.Unit + Environment.NewLine + Environment.NewLine;
             }
         }
 
