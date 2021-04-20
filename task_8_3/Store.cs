@@ -20,51 +20,54 @@ namespace task_8_3
     class Store
     {
         private List<Product> products = new List<Product>();
-        private List<Date> date = new List<Date>();
-        public int Money  { set; get; }
+        private List<Date> date = new List<Date>(); 
+        public int Money { set; get; }
 
         public void BuyNewProducts(Product product, string date)
         {
             int money = 0;
             products.Add(product);
-            money -= product.WholesalePrice; 
+            money -= product.WholesalePrice;
             Money -= product.WholesalePrice;
-            this.date.Add(new Date(money, date)); 
+            this.date.Add(new Date(money, date));
         }
 
-        public void SortByName()
+        public List<Product> SortByMarketPrice()
         {
+            for (int i = 1; i < products.Count; i++)
+            {
+                for (int j = i; j > 0 && products[j - 1].MarketPrice < products[j].MarketPrice; j--)
+                {
+                    Product tmp = products[j - 1];
+                    products[j - 1] = products[j];
+                    products[j] = tmp;
+                }
+            }
 
+            return products; 
         }
 
         public void SellProducts(string product, string date)
         {
-            int money = 0; 
-            
-            foreach (var pr in products)
+            int money = 0;
+
+            foreach (var pr in products.Where(pr => pr.Name.Equals(product)))
             {
-                if (pr.Name.Equals(product))
-                {
-                    money += pr.MarketPrice;
-                    Money -= pr.WholesalePrice;
-                    products.Remove(pr);
-                    break;
-                }
+                money += pr.MarketPrice;
+                Money -= pr.WholesalePrice;
+                products.Remove(pr);
+                break;
             }
-            this.date.Add(new Date(money, date)); 
+
+            this.date.Add(new Date(money, date));
         }
 
         //Выручка по периодам
-        public int Revenue(string date1, string date2)  
+        public int Revenue(string date1, string date2)
         {
-            int revenue = 0;
-            foreach (Date item in date)
-            {
-                if (DateCalculation.IsInDates(DateCalculation.DateToNumber(date1), DateCalculation.DateToNumber(item.DateOfOperation), DateCalculation.DateToNumber(date2))){
-                    revenue += item.Money;
-                }
-            }
-            return revenue;
+            return date.Where(item => DateCalculation.IsInDates(DateCalculation.DateToNumber(date1),
+                    DateCalculation.DateToNumber(item.DateOfOperation), DateCalculation.DateToNumber(date2)))
+                .Sum(item => item.Money);
         }
 
         public Store(string path, int Money)
@@ -74,13 +77,14 @@ namespace task_8_3
             for (int i = 0; i < file.Length; i += 7)
             {
                 // int Id, string Name, int MarketPrice, int WholesalePrice, string Category, int Quantity, string Unit
-                products.Add(new Product(int.Parse(file[i]), file[i + 1], int.Parse(file[i + 2]), int.Parse(file[i + 3]), file[i + 4], int.Parse(file[i + 5]), file[i + 6]));
+                products.Add(new Product(int.Parse(file[i]), file[i + 1], int.Parse(file[i + 2]),
+                    int.Parse(file[i + 3]), file[i + 4], int.Parse(file[i + 5]), file[i + 6]));
             }
         }
 
-        public List<Product> GetProducts()
+        public IEnumerable<Product> GetProducts()
         {
-            return products; 
+            return products;
         }
     }
 }

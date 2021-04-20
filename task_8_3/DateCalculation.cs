@@ -12,14 +12,16 @@ namespace task_8_3
             {
                 arrDate[i] = int.Parse(dateSplit[i].ToString());
             }
-            int[] ErrorDate = new int[1];
 
-            return CheackDate(arrDate) ? arrDate : ErrorDate;
+            int[] errorDate = new int[1];
+
+            return CheackDate(arrDate) ? arrDate : errorDate;
         }
 
         private static bool CheackDate(int[] arrDate)
         {
-            return arrDate[2] > 0 && arrDate[1] <= 12 && arrDate[1] > 0 && arrDate[0] > 0 && arrDate[0] <= AmountDays(arrDate[1], arrDate[2]);
+            return arrDate[2] > 0 && arrDate[1] <= 12 && arrDate[1] > 0 && arrDate[0] > 0 &&
+                   arrDate[0] <= AmountDays(arrDate[1], arrDate[2]);
         }
 
         private static int AmountDays(int mouth, int year)
@@ -44,7 +46,6 @@ namespace task_8_3
                     else return 28;
                 default:
                     return 0;
-
             }
         }
 
@@ -55,8 +56,6 @@ namespace task_8_3
             DateTime dCD = new DateTime(checkDate[2], checkDate[1], checkDate[0]);
 
             return d1 <= dCD && dCD <= d2;
-
         }
     }
 }
-

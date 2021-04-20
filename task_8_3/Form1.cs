@@ -16,12 +16,23 @@ namespace task_8_3
         //Магазин закупает товары
         private void button1_Click(object sender, System.EventArgs e)
         {
-            string [] strProd = textBox2.Text.Split(' ');
+            /*string[] strProd = textBox2.Text.Split(' ');
             for (int i = 0; i < strProd.Length; i += 7)
             {
-                store.BuyNewProducts(new Product(int.Parse(strProd[i]), strProd[i + 1], int.Parse(strProd[i + 2]), int.Parse(strProd[i + 3]), strProd[i + 4], int.Parse(strProd[i + 5]), strProd[i + 6]), textBox6.Text);  
+                store.BuyNewProducts(
+                    new Product(int.Parse(strProd[i]), strProd[i + 1], int.Parse(strProd[i + 2]),
+                        int.Parse(strProd[i + 3]), strProd[i + 4], int.Parse(strProd[i + 5]),
+                         strProd[i + 6]),
+                    textBox6.Text);
             }
-            ShowInfo(sender, e);
+
+            ShowInfo(sender, e);*/
+            var frm = new Form2();
+            frm.Location = this.Location;
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.FormClosing += delegate { this.Show(); };
+            frm.Show();
+            Hide();
         }
 
 
@@ -32,7 +43,7 @@ namespace task_8_3
 
         private void ShowInfo(object sender, System.EventArgs e)
         {
-            textBox1.Text = String.Empty; 
+            textBox1.Text = String.Empty;
 
             foreach (var prod in store.GetProducts())
             {
@@ -40,7 +51,8 @@ namespace task_8_3
                 textBox1.Text += "\nРыночная цена: " + prod.MarketPrice + Environment.NewLine;
                 textBox1.Text += "\nОптовая цена: " + prod.WholesalePrice + Environment.NewLine;
                 textBox1.Text += "\nКатегория: " + prod.Category + Environment.NewLine;
-                textBox1.Text += "\nОбъем товара: " + prod.Quantity +" "+prod.Unit + Environment.NewLine + Environment.NewLine;
+                textBox1.Text += "\nОбъем товара: " + prod.Quantity + " " + prod.Unit + Environment.NewLine +
+                                 Environment.NewLine;
             }
         }
 
@@ -48,16 +60,23 @@ namespace task_8_3
         private void button2_Click(object sender, EventArgs e)
         {
             string[] strProd = textBox2.Text.Split(' ');
-            for (int i = 0; i < strProd.Length; i++)
+            foreach (var pr in strProd)
             {
-                store.SellProducts(strProd[i], textBox6.Text);
+                store.SellProducts(pr, textBox6.Text);
             }
+
             ShowInfo(sender, e);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             textBox5.Text = store.Revenue(textBox3.Text, textBox4.Text).ToString();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            store.SortByMarketPrice(); 
+            ShowInfo(sender, e);
         }
     }
 }

@@ -9,17 +9,21 @@
         public string Name { set; get; } // Название 
         public int MarketPrice { set; get; } // Розничная цена
         public int WholesalePrice { set; get; } // Цена закупки
-
-        public Product(int Id, string Name, int MarketPrice, int WholesalePrice, string Category, int Quantity, string Unit)
+        
+        public Product(int Id, string Name, int MarketPrice, int WholesalePrice, string Category, int Quantity,
+            string Unit)
         {
             this.Name = Name;
             this.MarketPrice = MarketPrice;
             this.WholesalePrice = WholesalePrice;
             this.Category = Category;
             this.Unit = Unit;
-            this.Quantity = Quantity; 
-            this.Id = Id; 
+            this.Quantity = Quantity;
+            this.Id = Id;
         }
-        public Product() { }
+
+        public Product()
+        {
+        }
     }
 }
