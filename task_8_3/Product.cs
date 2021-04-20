@@ -1,6 +1,6 @@
 ﻿namespace task_8_3
 {
-    class Product
+    public class Product
     {
         public int Id { set; get; } // Уникальный код
         public string Category { set; get; } // Категория

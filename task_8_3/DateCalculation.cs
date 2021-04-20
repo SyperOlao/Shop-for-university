@@ -2,7 +2,7 @@
 
 namespace task_8_3
 {
-    class DateCalculation
+   public class DateCalculation
     {
         public static int[] DateToNumber(string date)
         {
@@ -15,10 +15,10 @@ namespace task_8_3
 
             int[] errorDate = new int[1];
 
-            return CheackDate(arrDate) ? arrDate : errorDate;
+            return CheckDate(arrDate) ? arrDate : errorDate;
         }
 
-        private static bool CheackDate(int[] arrDate)
+        private static bool CheckDate(int[] arrDate)
         {
             return arrDate[2] > 0 && arrDate[1] <= 12 && arrDate[1] > 0 && arrDate[0] > 0 &&
                    arrDate[0] <= AmountDays(arrDate[1], arrDate[2]);

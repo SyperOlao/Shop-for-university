@@ -5,16 +5,17 @@ namespace task_8_3
 {
     public partial class Form2 : Form
     {
-        public Form2()
+        private Store _store;
+       
+        public Form2(Store store)
         {
+            _store = store;
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var frm = new Shop();
-            frm.Location = Location;
-            frm.StartPosition = FormStartPosition.Manual;
+            var frm = new Shop {Location = Location, StartPosition = FormStartPosition.Manual};
             frm.FormClosing += delegate { this.Show(); };
             frm.Show();
             Hide();
@@ -22,7 +23,12 @@ namespace task_8_3
 
         private void button2_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            _store.SortByMarketPrice(); 
         }
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            
+        }
+        
     }
 }

@@ -27,7 +27,7 @@ namespace task_8_3
             }
 
             ShowInfo(sender, e);*/
-            var frm = new Form2();
+            var frm = new Form2(store);
             frm.Location = this.Location;
             frm.StartPosition = FormStartPosition.Manual;
             frm.FormClosing += delegate { this.Show(); };
@@ -78,5 +78,6 @@ namespace task_8_3
             store.SortByMarketPrice(); 
             ShowInfo(sender, e);
         }
+        
     }
 }

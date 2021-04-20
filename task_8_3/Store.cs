@@ -17,7 +17,7 @@ using System.Linq;
 
 namespace task_8_3
 {
-    class Store
+    public class Store
     {
         private List<Product> products = new List<Product>();
         private List<Date> date = new List<Date>(); 
