@@ -5,7 +5,7 @@
         private static int gen_id;
         private int id; // Уникальный код
         public string Category { get; } // Категория
-        public int Quantity { get; } // Количество товаров
+        public int Quantity { set; get; } // Количество товаров
         public string Unit { get; } // Eдиница измерения
         public string Name { get; } // Название 
         public int MarketPrice { get; } // Розничная цена

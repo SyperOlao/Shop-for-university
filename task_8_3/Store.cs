@@ -24,7 +24,7 @@ namespace task_8_3
         public int Money { set; get; }
 
         public void BuyNewProducts(Product product, string date)
-        {
+        { 
             int money = 0;
             products.Add(product);
             money -= product.WholesalePrice;
@@ -32,7 +32,7 @@ namespace task_8_3
             this.date.Add(new Date(money, date));
         }
 
-        public List<Product> SortByMarketPrice()
+        public void SortByMarketPrice()
         {
             for (int i = 1; i < products.Count; i++)
             {
@@ -43,18 +43,16 @@ namespace task_8_3
                     products[j] = tmp;
                 }
             }
-
-            return products; 
         }
 
-        public void SellProducts(string product, string date)
+        public void SellAllProducts(string product, string date)
         {
             int money = 0;
 
             foreach (var pr in products.Where(pr => pr.Name.Equals(product)))
             {
-                money += pr.MarketPrice;
-                Money -= pr.WholesalePrice;
+                money += pr.MarketPrice * pr.Quantity;
+                Money += pr.MarketPrice * pr.Quantity;
                 products.Remove(pr);
                 break;
             }
@@ -62,6 +60,23 @@ namespace task_8_3
             this.date.Add(new Date(money, date));
         }
 
+        public void SellProducts(string product, string date, int amount)
+        {
+            int money = 0; 
+            foreach (var pr in products.Where(pr => pr.Name.Equals(product)))
+            {
+                if (pr.Quantity < amount)
+                {
+                    SellAllProducts(product, date);
+                    return;
+                }
+                money += pr.MarketPrice * amount;
+                Money += pr.MarketPrice * amount;
+                pr.Quantity -= amount;
+            }
+            this.date.Add(new Date(money, date));
+        }
+        
         //Выручка по периодам
         public int Revenue(string date1, string date2)
         {
@@ -76,7 +91,6 @@ namespace task_8_3
             string[] file = File.ReadAllLines(path);
             for (int i = 0; i < file.Length; i += 6)
             {
-                // int Id, string Name, int MarketPrice, int WholesalePrice, string Category, int Quantity, string Unit
                 products.Add(new Product(file[i], int.Parse(file[i + 1]),
                     int.Parse(file[i + 2]), file[i + 3], int.Parse(file[i + 4]), file[i + 5]));
             }

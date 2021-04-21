@@ -36,11 +36,9 @@ namespace task_8_3
 
             foreach (var prod in store.GetProducts())
             {
-                textBox1.Text += "\nНаименование: " + prod.Name + Environment.NewLine;
-                textBox1.Text += "\nРыночная цена: " + prod.MarketPrice + Environment.NewLine;
-                textBox1.Text += "\nОптовая цена: " + prod.WholesalePrice + Environment.NewLine;
-                textBox1.Text += "\nКатегория: " + prod.Category + Environment.NewLine;
-                textBox1.Text += "\nОбъем товара: " + prod.Quantity + " " + prod.Unit + Environment.NewLine +
+                textBox1.Text += "Наименование: " + prod.Name + Environment.NewLine;
+                textBox1.Text += "Рыночная цена: " + prod.MarketPrice + Environment.NewLine;
+                textBox1.Text += "Количество товара: " + prod.Quantity + " " + prod.Unit + Environment.NewLine +
                                  Environment.NewLine;
             }
         }
@@ -48,7 +46,6 @@ namespace task_8_3
         //Закупить (самомоу магазину)
         private void button2_Click(object sender, EventArgs e)
         {
-            
             string[] strProd = textBox2.Text.Split(' ');
             for (int i = 0; i < strProd.Length; i += 6)
             {
@@ -70,7 +67,12 @@ namespace task_8_3
         // Покупает по штучно
         private void button4_Click(object sender, EventArgs e)
         {
-            store.SortByMarketPrice();
+            string[] strProd = textBox2.Text.Split(' ');
+            for (int i = 0; i < strProd.Length; i += 2)
+            {
+                store.SellProducts(strProd[i], textBox6.Text, int.Parse(strProd[i+1]));
+            }
+
             ShowInfo(sender, e);
         }
 
@@ -80,7 +82,7 @@ namespace task_8_3
             string[] strProd = textBox2.Text.Split(' ');
             foreach (var pr in strProd)
             {
-                store.SellProducts(pr, textBox6.Text);
+                store.SellAllProducts(pr, textBox6.Text);
             }
 
             ShowInfo(sender, e);
