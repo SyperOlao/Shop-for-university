@@ -74,11 +74,11 @@ namespace task_8_3
         {
             this.Money = Money;
             string[] file = File.ReadAllLines(path);
-            for (int i = 0; i < file.Length; i += 7)
+            for (int i = 0; i < file.Length; i += 6)
             {
                 // int Id, string Name, int MarketPrice, int WholesalePrice, string Category, int Quantity, string Unit
-                products.Add(new Product(int.Parse(file[i]), file[i + 1], int.Parse(file[i + 2]),
-                    int.Parse(file[i + 3]), file[i + 4], int.Parse(file[i + 5]), file[i + 6]));
+                products.Add(new Product(file[i], int.Parse(file[i + 1]),
+                    int.Parse(file[i + 2]), file[i + 3], int.Parse(file[i + 4]), file[i + 5]));
             }
         }
 

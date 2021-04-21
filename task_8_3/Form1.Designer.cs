@@ -313,6 +313,7 @@ namespace task_8_3
             this.button5.TabIndex = 24;
             this.button5.Text = "Купить партию товароа";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Shop
             // 
@@ -351,6 +352,8 @@ namespace task_8_3
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Button BuyProd;
 
         private System.Windows.Forms.Button button5;
 

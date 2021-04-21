@@ -16,19 +16,8 @@ namespace task_8_3
         //Магазин закупает товары
         private void button1_Click(object sender, System.EventArgs e)
         {
-            /*string[] strProd = textBox2.Text.Split(' ');
-            for (int i = 0; i < strProd.Length; i += 7)
-            {
-                store.BuyNewProducts(
-                    new Product(int.Parse(strProd[i]), strProd[i + 1], int.Parse(strProd[i + 2]),
-                        int.Parse(strProd[i + 3]), strProd[i + 4], int.Parse(strProd[i + 5]),
-                         strProd[i + 6]),
-                    textBox6.Text);
-            }
-
-            ShowInfo(sender, e);*/
             var frm = new Form2(store);
-            frm.Location = this.Location;
+            frm.Location = Location;
             frm.StartPosition = FormStartPosition.Manual;
             frm.FormClosing += delegate { this.Show(); };
             frm.Show();
@@ -56,7 +45,7 @@ namespace task_8_3
             }
         }
 
-        //Покупатель покупает у магазина
+        //Закупить (самомоу магазину)
         private void button2_Click(object sender, EventArgs e)
         {
             string[] strProd = textBox2.Text.Split(' ');
@@ -68,16 +57,33 @@ namespace task_8_3
             ShowInfo(sender, e);
         }
 
+        // прибыль 
         private void button3_Click(object sender, EventArgs e)
         {
             textBox5.Text = store.Revenue(textBox3.Text, textBox4.Text).ToString();
         }
 
+        // Покупает по штучно
         private void button4_Click(object sender, EventArgs e)
         {
-            store.SortByMarketPrice(); 
+            store.SortByMarketPrice();
             ShowInfo(sender, e);
         }
-        
+
+        // купить партию товара 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string[] strProd = textBox2.Text.Split(' ');
+            for (int i = 0; i < strProd.Length; i += 6)
+            {
+                store.BuyNewProducts(
+                    new Product( strProd[i], int.Parse(strProd[i + 1]),
+                        int.Parse(strProd[i + 2]), strProd[i + 3], int.Parse(strProd[i + 4]),
+                        strProd[i + 5]),
+                    textBox6.Text);
+            }
+
+            ShowInfo(sender, e);
+        }
     }
 }
