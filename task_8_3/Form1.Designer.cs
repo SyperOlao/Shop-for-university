@@ -245,7 +245,7 @@ namespace task_8_3
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
             this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(88, 46);
+            this.label9.Location = new System.Drawing.Point(92, 46);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(86, 24);
@@ -269,7 +269,7 @@ namespace task_8_3
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(119, 56);
             this.button4.TabIndex = 21;
-            this.button4.Text = "Купить товар по штучно";
+            this.button4.Text = "Купить товар поштучно";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -302,7 +302,7 @@ namespace task_8_3
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(115, 56);
             this.button5.TabIndex = 24;
-            this.button5.Text = "Купить партию товароа";
+            this.button5.Text = "Купить партию товара";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -362,7 +362,7 @@ namespace task_8_3
             this.ForeColor = System.Drawing.Color.Black;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Shop";
-            this.Text = "Form1";
+            this.Text = "Магнит";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

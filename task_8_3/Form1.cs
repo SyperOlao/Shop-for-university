@@ -39,8 +39,7 @@ namespace task_8_3
             {
                 textBox1.Text += "Наименование: " + prod.Name + Environment.NewLine;
                 textBox1.Text += "Рыночная цена: " + prod.MarketPrice + Environment.NewLine;
-                textBox1.Text += "Количество товара: " + prod.Quantity + " " + prod.Unit + Environment.NewLine +
-                                 Environment.NewLine;
+                textBox1.Text += "Количество товара: " + prod.Quantity + " " + prod.Unit + Environment.NewLine;
             }
         }
 

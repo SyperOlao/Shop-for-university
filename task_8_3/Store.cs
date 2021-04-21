@@ -20,11 +20,11 @@ namespace task_8_3
     public class Store
     {
         private List<Product> products = new List<Product>();
-        private List<Date> date = new List<Date>(); 
+        private List<Date> date = new List<Date>();
         public int Money { set; get; }
 
         public void BuyNewProducts(Product product, string date)
-        { 
+        {
             int money = 0;
             products.Add(product);
             money -= product.WholesalePrice;
@@ -43,6 +43,11 @@ namespace task_8_3
                     products[j] = tmp;
                 }
             }
+        }
+
+        public void SortByAlphabet()
+        {
+            products.Sort();
         }
 
         public void SellAllProducts(string product, string date)
@@ -84,7 +89,7 @@ namespace task_8_3
                     DateCalculation.DateToNumber(item.DateOfOperation), DateCalculation.DateToNumber(date2)))
                 .Sum(item => item.Money);
         }
-
+        
         public Store(string path, int Money)
         {
             this.Money = Money;

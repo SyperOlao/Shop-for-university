@@ -43,12 +43,13 @@ namespace task_8_3
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.Coral;
             this.button1.Location = new System.Drawing.Point(21, 338);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(130, 50);
             this.button1.TabIndex = 0;
             this.button1.Text = "Назад в Магазин";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
@@ -67,8 +68,9 @@ namespace task_8_3
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(130, 62);
             this.button3.TabIndex = 3;
-            this.button3.Text = "button3";
+            this.button3.Text = "Сортировка по алфавиту";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -76,8 +78,9 @@ namespace task_8_3
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(130, 62);
             this.button4.TabIndex = 4;
-            this.button4.Text = "button4";
+            this.button4.Text = "Сортировка по типу";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // dataGridView1
             // 
@@ -111,7 +114,7 @@ namespace task_8_3
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "О товарах";
             this.Load += new System.EventHandler(this.Form2_Load_1);
             ((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

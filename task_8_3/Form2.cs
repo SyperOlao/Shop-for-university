@@ -66,5 +66,16 @@ namespace task_8_3
         {
             ShowInfo(sender, e);
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            _store.SortByAlphabet(); 
+            ShowInfo(sender, e);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
