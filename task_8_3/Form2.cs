@@ -29,16 +29,21 @@ namespace task_8_3
         
         private void ShowInfo(object sender, System.EventArgs e)
         {
-            groupBox1.Text = String.Empty;
+            dataGridView1.Text= String.Empty;
 
+            
             foreach (var prod in _store.GetProducts())
             {
-                groupBox1.Text += "\nНаименование: " + prod.Name + Environment.NewLine;
-                groupBox1.Text += "\nРыночная цена: " + prod.MarketPrice + Environment.NewLine;
-                groupBox1.Text += "\nОптовая цена: " + prod.WholesalePrice + Environment.NewLine;
-                groupBox1.Text += "\nКатегория: " + prod.Category + Environment.NewLine;
-                groupBox1.Text += "\nОбъем товара: " + prod.Quantity + " " + prod.Unit + Environment.NewLine +
-                                 Environment.NewLine;
+             
+                dataGridView1.Rows.Add("\nНаименование");
+                dataGridView1.Rows[0].Cells["Column2"].Value = prod.Name; 
+
+                /*dataGridView1.Text += "\nНаименование: " + prod.Name + Environment.NewLine;
+                dataGridView1.Text += "\nРыночная цена: " + prod.MarketPrice + Environment.NewLine;
+                dataGridView1.Text += "\nОптовая цена: " + prod.WholesalePrice + Environment.NewLine;
+                dataGridView1.Text += "\nКатегория: " + prod.Category + Environment.NewLine;
+                dataGridView1.Text += "\nОбъем товара: " + prod.Quantity + " " + prod.Unit + Environment.NewLine +
+                                 Environment.NewLine;*/
             }
         }
 
