@@ -30,6 +30,7 @@ namespace task_8_3
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Shop));
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -49,12 +50,12 @@ namespace task_8_3
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -91,7 +92,7 @@ namespace task_8_3
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(562, 89);
+            this.textBox3.Location = new System.Drawing.Point(529, 92);
             this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(152, 20);
@@ -100,17 +101,17 @@ namespace task_8_3
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(562, 131);
+            this.textBox4.Location = new System.Drawing.Point(528, 131);
             this.textBox4.Margin = new System.Windows.Forms.Padding(2);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(152, 20);
+            this.textBox4.Size = new System.Drawing.Size(153, 20);
             this.textBox4.TabIndex = 5;
             this.textBox4.Text = "7.6.2020";
             // 
             // textBox5
             // 
             this.textBox5.BackColor = System.Drawing.Color.Moccasin;
-            this.textBox5.Location = new System.Drawing.Point(562, 360);
+            this.textBox5.Location = new System.Drawing.Point(554, 360);
             this.textBox5.Margin = new System.Windows.Forms.Padding(2);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
@@ -122,12 +123,12 @@ namespace task_8_3
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
-            this.label2.Location = new System.Drawing.Point(288, 33);
+            this.label2.Location = new System.Drawing.Point(288, 40);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(191, 15);
+            this.label2.Size = new System.Drawing.Size(133, 15);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Какие  ПАРТИИ  товары хотите";
+            this.label2.Text = "Какие товары хотите";
             // 
             // button2
             // 
@@ -143,10 +144,10 @@ namespace task_8_3
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.PaleGreen;
-            this.button3.Location = new System.Drawing.Point(562, 397);
+            this.button3.Location = new System.Drawing.Point(557, 390);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(126, 26);
+            this.button3.Size = new System.Drawing.Size(159, 33);
             this.button3.TabIndex = 9;
             this.button3.Text = "Прибыль";
             this.button3.UseVisualStyleBackColor = false;
@@ -156,7 +157,7 @@ namespace task_8_3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
-            this.label3.Location = new System.Drawing.Point(561, 72);
+            this.label3.Location = new System.Drawing.Point(528, 73);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(168, 15);
@@ -167,7 +168,7 @@ namespace task_8_3
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
-            this.label4.Location = new System.Drawing.Point(562, 114);
+            this.label4.Location = new System.Drawing.Point(528, 114);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(120, 15);
@@ -178,7 +179,7 @@ namespace task_8_3
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
-            this.label5.Location = new System.Drawing.Point(561, 343);
+            this.label5.Location = new System.Drawing.Point(554, 344);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 15);
@@ -220,7 +221,7 @@ namespace task_8_3
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
-            this.label8.Location = new System.Drawing.Point(562, 166);
+            this.label8.Location = new System.Drawing.Point(528, 153);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(78, 15);
@@ -230,14 +231,14 @@ namespace task_8_3
             // textBox7
             // 
             this.textBox7.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.textBox7.Location = new System.Drawing.Point(563, 183);
+            this.textBox7.Location = new System.Drawing.Point(528, 170);
             this.textBox7.Margin = new System.Windows.Forms.Padding(2);
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(152, 134);
+            this.textBox7.Size = new System.Drawing.Size(179, 171);
             this.textBox7.TabIndex = 17;
-            this.textBox7.Text = "Если хотите купить товар то напишите его (имя цену закупа цену рыночную), наприме" + "р: Лук 30 40. Продать (имя товара)! Например: Лук.     !!! УКАЖИТЕ ДАТУ ОПЕРАЦИИ" + "!!!";
+            this.textBox7.Text = resources.GetString("textBox7.Text");
             // 
             // label9
             // 
@@ -261,18 +262,6 @@ namespace task_8_3
             this.label10.Size = new System.Drawing.Size(101, 15);
             this.label10.TabIndex = 19;
             this.label10.Text = "купить/продать:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
-            this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(332, 33);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(56, 15);
-            this.label11.TabIndex = 20;
-            this.label11.Text = "ПАРТИИ";
             // 
             // button4
             // 
@@ -299,7 +288,7 @@ namespace task_8_3
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
-            this.label12.Location = new System.Drawing.Point(561, 11);
+            this.label12.Location = new System.Drawing.Point(529, 12);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(112, 15);
@@ -320,7 +309,7 @@ namespace task_8_3
             // textBox8
             // 
             this.textBox8.BackColor = System.Drawing.Color.Moccasin;
-            this.textBox8.Location = new System.Drawing.Point(561, 32);
+            this.textBox8.Location = new System.Drawing.Point(529, 29);
             this.textBox8.Margin = new System.Windows.Forms.Padding(2);
             this.textBox8.Multiline = true;
             this.textBox8.Name = "textBox8";
@@ -328,17 +317,29 @@ namespace task_8_3
             this.textBox8.Size = new System.Drawing.Size(153, 26);
             this.textBox8.TabIndex = 25;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
+            this.label11.ForeColor = System.Drawing.Color.Red;
+            this.label11.Location = new System.Drawing.Point(268, 393);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(273, 24);
+            this.label11.TabIndex = 26;
+            this.label11.Text = "!!!Не забудьте указать дату!!!";
+            // 
             // Shop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(736, 438);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox7);
@@ -366,6 +367,8 @@ namespace task_8_3
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Label label11;
 
         private System.Windows.Forms.TextBox textBox8;
 
@@ -399,8 +402,6 @@ namespace task_8_3
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-       
     }
 }
 

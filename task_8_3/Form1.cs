@@ -28,6 +28,7 @@ namespace task_8_3
         private void Form1_Load(object sender, System.EventArgs e)
         {
             ShowInfo(sender, e);
+            textBox8.Text = store.Money.ToString();
         }
 
         private void ShowInfo(object sender, System.EventArgs e)
@@ -54,8 +55,9 @@ namespace task_8_3
                         int.Parse(strProd[i + 2]), strProd[i + 3], int.Parse(strProd[i + 4]),
                         strProd[i + 5]),
                     textBox6.Text);
-                ShowInfo(sender, e);
             }
+            ShowInfo(sender, e);
+            textBox8.Text = store.Money.ToString();
         }
 
         // прибыль 
@@ -74,17 +76,18 @@ namespace task_8_3
             }
 
             ShowInfo(sender, e);
+            textBox8.Text = store.Money.ToString();
         }
 
         // купить партию товара 
         private void button5_Click(object sender, EventArgs e)
         {
-            string[] strProd = textBox2.Text.Split(' ');
+            var strProd = textBox2.Text.Split(' ');
             foreach (var pr in strProd)
             {
                 store.SellAllProducts(pr, textBox6.Text);
             }
-
+            textBox8.Text = store.Money.ToString();
             ShowInfo(sender, e);
         }
     }

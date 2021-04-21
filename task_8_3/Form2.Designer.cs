@@ -38,7 +38,7 @@ namespace task_8_3
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -82,25 +82,23 @@ namespace task_8_3
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2});
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {this.Column1, this.Column2});
             this.dataGridView1.Location = new System.Drawing.Point(246, 33);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(393, 341);
+            this.dataGridView1.Size = new System.Drawing.Size(396, 341);
             this.dataGridView1.TabIndex = 5;
             // 
             // Column1
             // 
             this.Column1.HeaderText = "Описание";
             this.Column1.Name = "Column1";
-            this.Column1.Width = 150;
+            this.Column1.Width = 140;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Товар";
             this.Column2.Name = "Column2";
-            this.Column2.Width = 200;
+            this.Column2.Width = 190;
             // 
             // Form2
             // 
@@ -115,9 +113,8 @@ namespace task_8_3
             this.Name = "Form2";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load_1);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         private System.Windows.Forms.Button button3;

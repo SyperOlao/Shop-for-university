@@ -2,8 +2,7 @@
 {
     public class Product
     {
-        private static int gen_id;
-        private int id; // Уникальный код
+        public int id { get; set; } // Уникальный код
         public string Category { get; } // Категория
         public int Quantity { set; get; } // Количество товаров
         public string Unit { get; } // Eдиница измерения
@@ -11,10 +10,7 @@
         public int MarketPrice { get; } // Розничная цена
         public int WholesalePrice { get; } // Цена закупки
 
-        public int GetId()
-        {
-            return id;
-        }
+      
 
         public Product(string Name, int MarketPrice, int WholesalePrice, string Category, int Quantity,
             string Unit)
@@ -25,7 +21,7 @@
             this.Category = Category;
             this.Unit = Unit;
             this.Quantity = Quantity;
-            id = gen_id++;
+            this.id = id; //TODO:: добавить id 
         }
     }
 }
