@@ -48,13 +48,17 @@ namespace task_8_3
         //Закупить (самомоу магазину)
         private void button2_Click(object sender, EventArgs e)
         {
+            
             string[] strProd = textBox2.Text.Split(' ');
-            foreach (var pr in strProd)
+            for (int i = 0; i < strProd.Length; i += 6)
             {
-                store.SellProducts(pr, textBox6.Text);
+                store.BuyNewProducts(
+                    new Product( strProd[i], int.Parse(strProd[i + 1]),
+                        int.Parse(strProd[i + 2]), strProd[i + 3], int.Parse(strProd[i + 4]),
+                        strProd[i + 5]),
+                    textBox6.Text);
+                ShowInfo(sender, e);
             }
-
-            ShowInfo(sender, e);
         }
 
         // прибыль 
@@ -74,13 +78,9 @@ namespace task_8_3
         private void button5_Click(object sender, EventArgs e)
         {
             string[] strProd = textBox2.Text.Split(' ');
-            for (int i = 0; i < strProd.Length; i += 6)
+            foreach (var pr in strProd)
             {
-                store.BuyNewProducts(
-                    new Product( strProd[i], int.Parse(strProd[i + 1]),
-                        int.Parse(strProd[i + 2]), strProd[i + 3], int.Parse(strProd[i + 4]),
-                        strProd[i + 5]),
-                    textBox6.Text);
+                store.SellProducts(pr, textBox6.Text);
             }
 
             ShowInfo(sender, e);
