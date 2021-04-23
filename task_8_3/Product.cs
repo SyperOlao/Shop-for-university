@@ -2,7 +2,7 @@
 {
     public class Product
     {
-        public int id { get; set; } // Уникальный код
+        public int id { get; } // Уникальный код
         public string Category { get; } // Категория
         public int Quantity { set; get; } // Количество товаров
         public string Unit { get; } // Eдиница измерения

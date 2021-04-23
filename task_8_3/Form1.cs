@@ -13,7 +13,7 @@ namespace task_8_3
             InitializeComponent();
         }
         
-        private void button1_Click(object sender, System.EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             var frm = new Form2(store) {Location = Location, StartPosition = FormStartPosition.Manual};
             frm.FormClosing += delegate { Show(); };
@@ -22,13 +22,13 @@ namespace task_8_3
         }
 
 
-        private void Form1_Load(object sender, System.EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            ShowInfo(sender, e);
+            ShowInfo();
             textBox8.Text = store.Money.ToString();
         }
 
-        private void ShowInfo(object sender, System.EventArgs e)
+        private void ShowInfo()
         {
             textBox1.Text = String.Empty;
 
@@ -53,7 +53,7 @@ namespace task_8_3
                         strProd[i + 5]),
                     textBox6.Text);
             }
-            ShowInfo(sender, e);
+            ShowInfo();
             textBox8.Text = store.Money.ToString();
             
         }
@@ -75,7 +75,7 @@ namespace task_8_3
                 store.SellProducts(strProd[i], textBox6.Text, int.Parse(strProd[i+1]), label13);
             }
 
-            ShowInfo(sender, e);
+            ShowInfo();
             textBox8.Text = store.Money.ToString();
         }
 
@@ -89,7 +89,7 @@ namespace task_8_3
                 store.SellAllProducts(pr, textBox6.Text);
             }
             textBox8.Text = store.Money.ToString();
-            ShowInfo(sender, e);
+            ShowInfo();
         }
     }
 }
