@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 
 /*Класс Store – набор объектов класса Product, экземпляры которого описывают
 товары, предлагаемые к продаже. В числе полей класса Product должны
@@ -19,73 +20,85 @@ namespace task_8_3
 {
     public class Store
     {
-        private List<Product> products = new List<Product>();
-        private List<Date> date = new List<Date>();
+        private List<Product> _products = new List<Product>();
+        private List<Date> _date = new List<Date>();
         public int Money { set; get; }
 
         public void BuyNewProducts(Product product, string date)
         {
             int money = 0;
-            products.Add(product);
+            _products.Add(product);
             money -= product.WholesalePrice;
             Money -= product.WholesalePrice;
-            this.date.Add(new Date(money, date));
+            _date.Add(new Date(money, date));
         }
 
         public void SortByMarketPrice()
         {
-            for (int i = 1; i < products.Count; i++)
+            for (int i = 1; i < _products.Count; i++)
             {
-                for (int j = i; j > 0 && products[j - 1].MarketPrice < products[j].MarketPrice; j--)
+                for (int j = i; j > 0 && _products[j - 1].MarketPrice < _products[j].MarketPrice; j--)
                 {
-                    Product tmp = products[j - 1];
-                    products[j - 1] = products[j];
-                    products[j] = tmp;
+                    Product tmp = _products[j - 1];
+                    _products[j - 1] = _products[j];
+                    _products[j] = tmp;
                 }
             }
         }
 
-        public void SortByAlphabet()
+        public IOrderedEnumerable<Product> SortByAlphabet()
         {
-            products.Sort();
+           var query = from prod in _products 
+                orderby prod.Name.Substring(0, 1)  
+                select prod;
+           return query;
         }
-
+        
+        public IOrderedEnumerable<Product> SortByCategory()
+        {
+            var query = from prod in _products 
+                orderby prod.Category.Substring(0, 1)  
+                select prod;
+            return query;
+        }
+        
         public void SellAllProducts(string product, string date)
         {
             int money = 0;
 
-            foreach (var pr in products.Where(pr => pr.Name.Equals(product)))
+            foreach (var pr in _products.Where(pr => pr.Name.Equals(product)))
             {
                 money += pr.MarketPrice * pr.Quantity;
                 Money += pr.MarketPrice * pr.Quantity;
-                products.Remove(pr);
+                _products.Remove(pr);
                 break;
             }
 
-            this.date.Add(new Date(money, date));
+            _date.Add(new Date(money, date));
         }
 
-        public void SellProducts(string product, string date, int amount)
+        public void SellProducts(string product, string date, int amount, Label label)
         {
             int money = 0; 
-            foreach (var pr in products.Where(pr => pr.Name.Equals(product)))
+            foreach (var pr in _products.Where(pr => pr.Name.Equals(product)))
             {
                 if (pr.Quantity < amount)
                 {
                     SellAllProducts(product, date);
+                    label.Text = "Вы выкупили весь товар, больше нет ";
                     return;
                 }
                 money += pr.MarketPrice * amount;
                 Money += pr.MarketPrice * amount;
                 pr.Quantity -= amount;
             }
-            this.date.Add(new Date(money, date));
+            this._date.Add(new Date(money, date));
         }
         
         //Выручка по периодам
         public int Revenue(string date1, string date2)
         {
-            return date.Where(item => DateCalculation.IsInDates(DateCalculation.DateToNumber(date1),
+            return _date.Where(item => DateCalculation.IsInDates(DateCalculation.DateToNumber(date1),
                     DateCalculation.DateToNumber(item.DateOfOperation), DateCalculation.DateToNumber(date2)))
                 .Sum(item => item.Money);
         }
@@ -96,14 +109,14 @@ namespace task_8_3
             string[] file = File.ReadAllLines(path);
             for (int i = 0; i < file.Length; i += 6)
             {
-                products.Add(new Product(file[i], int.Parse(file[i + 1]),
+                _products.Add(new Product(file[i], int.Parse(file[i + 1]),
                     int.Parse(file[i + 2]), file[i + 3], int.Parse(file[i + 4]), file[i + 5]));
             }
         }
 
         public IEnumerable<Product> GetProducts()
         {
-            return products;
+            return _products;
         }
     }
 }

@@ -31,7 +31,6 @@ namespace task_8_3
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -40,17 +39,6 @@ namespace task_8_3
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Coral;
-            this.button1.Location = new System.Drawing.Point(21, 338);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 50);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Назад в Магазин";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -112,7 +100,6 @@ namespace task_8_3
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Name = "Form2";
             this.Text = "О товарах";
             this.Load += new System.EventHandler(this.Form2_Load_1);
@@ -123,7 +110,6 @@ namespace task_8_3
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
 
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
 
         #endregion

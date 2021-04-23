@@ -12,14 +12,11 @@ namespace task_8_3
         {
             InitializeComponent();
         }
-
-        //Магазин закупает товары
+        
         private void button1_Click(object sender, System.EventArgs e)
         {
-            var frm = new Form2(store);
-            frm.Location = Location;
-            frm.StartPosition = FormStartPosition.Manual;
-            frm.FormClosing += delegate { this.Show(); };
+            var frm = new Form2(store) {Location = Location, StartPosition = FormStartPosition.Manual};
+            frm.FormClosing += delegate { Show(); };
             frm.Show();
             Hide();
         }
@@ -46,6 +43,7 @@ namespace task_8_3
         //Закупить (самомоу магазину)
         private void button2_Click(object sender, EventArgs e)
         {
+            label13.Text = String.Empty;
             string[] strProd = textBox2.Text.Split(' ');
             for (int i = 0; i < strProd.Length; i += 6)
             {
@@ -57,21 +55,24 @@ namespace task_8_3
             }
             ShowInfo(sender, e);
             textBox8.Text = store.Money.ToString();
+            
         }
 
         // прибыль 
         private void button3_Click(object sender, EventArgs e)
         {
+            label13.Text = String.Empty;
             textBox5.Text = store.Revenue(textBox3.Text, textBox4.Text).ToString();
         }
 
         // Покупает по штучно
         private void button4_Click(object sender, EventArgs e)
         {
+            label13.Text = String.Empty;
             string[] strProd = textBox2.Text.Split(' ');
             for (int i = 0; i < strProd.Length; i += 2)
             {
-                store.SellProducts(strProd[i], textBox6.Text, int.Parse(strProd[i+1]));
+                store.SellProducts(strProd[i], textBox6.Text, int.Parse(strProd[i+1]), label13);
             }
 
             ShowInfo(sender, e);
@@ -81,6 +82,7 @@ namespace task_8_3
         // купить партию товара 
         private void button5_Click(object sender, EventArgs e)
         {
+            label13.Text = String.Empty;
             var strProd = textBox2.Text.Split(' ');
             foreach (var pr in strProd)
             {
