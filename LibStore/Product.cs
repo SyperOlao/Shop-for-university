@@ -1,4 +1,4 @@
-﻿namespace task_8_3
+﻿namespace LibStore
 {
     public class Product
     {

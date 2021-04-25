@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Windows.Forms;
 
 /*Класс Store – набор объектов класса Product, экземпляры которого описывают
 товары, предлагаемые к продаже. В числе полей класса Product должны
@@ -16,7 +15,7 @@ using System.Windows.Forms;
 возможность группировки по товаров по категориям. Создать отдельные формы для
 экземпляров класса Store и класса Product.*/
 
-namespace task_8_3
+namespace LibStore
 {
     public class Store
     {
@@ -77,7 +76,7 @@ namespace task_8_3
             _date.Add(new Date(money, date));
         }
 
-        public void SellProducts(string product, string date, int amount, Label label)
+        public void SellProducts(string product, string date, int amount)
         {
             int money = 0; 
             foreach (var pr in _products.Where(pr => pr.Name.Equals(product)))
@@ -85,7 +84,6 @@ namespace task_8_3
                 if (pr.Quantity < amount)
                 {
                     SellAllProducts(product, date);
-                    label.Text = "Вы выкупили весь товар, больше нет ";
                     return;
                 }
                 money += pr.MarketPrice * amount;
