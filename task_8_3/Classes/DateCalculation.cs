@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace task_8_3
+namespace task_8_3.Classes
 {
    public class DateCalculation
     {

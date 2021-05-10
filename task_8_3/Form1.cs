@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using LibStore;
+using task_8_3.Classes;
 
 namespace task_8_3
 {
@@ -48,7 +48,7 @@ namespace task_8_3
             for (int i = 0; i < strProd.Length; i += 6)
             {
                 store.BuyNewProducts(
-                    new Product( strProd[i], int.Parse(strProd[i + 1]),
+                    new Product( ++store.id, strProd[i], int.Parse(strProd[i + 1]),
                         int.Parse(strProd[i + 2]), strProd[i + 3], int.Parse(strProd[i + 4]),
                         strProd[i + 5]),
                     textBox6.Text);

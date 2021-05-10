@@ -21,13 +21,14 @@ using System.Windows.Forms;
 быть отчет о сделанной покупке*/
 
 
-namespace task_8_3
+namespace task_8_3.Classes 
 {
     public class Store
     {
         private List<Product> _products = new List<Product>();
         private List<Date> _date = new List<Date>();
-        private Dictionary<Date, Product> _purchase = new Dictionary<Date, Product>(); 
+        private Dictionary<Date, Product> _purchase = new Dictionary<Date, Product>();
+        public int id { set; get; }
         public int Money { set; get; }
         
         public void BuyNewProducts(Product product, string date)
@@ -119,11 +120,20 @@ namespace task_8_3
             string[] file = File.ReadAllLines(path);
             for (int i = 0; i < file.Length; i += 6)
             {
-                _products.Add(new Product(file[i], int.Parse(file[i + 1]),
+                _products.Add(new Product(++id, file[i], int.Parse(file[i + 1]),
                     int.Parse(file[i + 2]), file[i + 3], int.Parse(file[i + 4]), file[i + 5]));
             }
         }
 
+        public Dictionary<Date, Product> GetPurchase()
+        {
+            return _purchase;
+        }
+
+        public List<Product> GetProductsList()
+        {
+            return _products;
+        }
         public IEnumerable<Product> GetProducts()
         {
             return _products;

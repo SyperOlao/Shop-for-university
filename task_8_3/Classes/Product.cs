@@ -1,4 +1,4 @@
-﻿namespace task_8_3
+﻿namespace task_8_3.Classes
 {
     public class Product
     {
@@ -10,7 +10,7 @@
         public int MarketPrice { get; } // Розничная цена
         public int WholesalePrice { get; } // Цена закупки
 
-        public Product(string Name, int MarketPrice, int WholesalePrice, string Category, int Quantity,
+        public Product(int id, string Name, int MarketPrice, int WholesalePrice, string Category, int Quantity,
             string Unit)
         {
             this.Name = Name;

@@ -3,31 +3,35 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using task_8_3.Classes;
 
 namespace task_8_3
 {
     public partial class Form2 : Form
     {
         private Store _store;
-       
+
+        public delegate List<Product> InfoOfPurchase(Dictionary<Date, Product> purchase);
+
+        private InfoOfPurchase infoOfPurchase;
         public Form2(Store store)
         {
             _store = store;
             InitializeComponent();
         }
         
-
         private void button2_Click(object sender, EventArgs e)
         {
             ShowInfo(_store.SortByMarketPrice());
         }
         
-        private void ShowInfo()
+        private void ShowInfo(List<Product> products, bool clean=true)
         {
-            dataGridView1.Rows.Clear();
+            if(clean)
+                dataGridView1.Rows.Clear();
 
             int i = 0;
-            foreach (var prod in _store.GetProducts())
+            foreach (var prod in products)
             {
                 dataGridView1.Rows.Add("Id");
                 dataGridView1.Rows[i].Cells["Column2"].Value = prod.id;
@@ -88,7 +92,7 @@ namespace task_8_3
 
         private void Form2_Load_1(object sender, EventArgs e)
         {
-            ShowInfo();
+            ShowInfo(_store.GetProductsList());
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -99,6 +103,29 @@ namespace task_8_3
         private void button4_Click(object sender, EventArgs e)
         {
             ShowInfo(_store.SortByCategory());
+        }
+        //Корзина покупок
+        private void button1_Click(object sender, EventArgs e)
+        {
+            infoOfPurchase = ShowInfoForPurchase;
+            ShowInfo(infoOfPurchase(_store.GetPurchase()));
+        }
+        //Корзина продаж
+        private void button5_Click(object sender, EventArgs e)
+        {
+            infoOfPurchase = ShowInfoForSelling;
+            ShowInfo(infoOfPurchase(_store.GetPurchase()));
+        }
+        // Корзина общих продаж
+ 
+        public static List<Product> ShowInfoForPurchase(Dictionary<Date, Product> purchase)
+        {
+            return (from pr in purchase where pr.Key.Money > 0 select pr.Value).ToList();
+        }
+
+        public static List<Product> ShowInfoForSelling(Dictionary<Date, Product> purchase)
+        {
+            return (from pr in purchase where pr.Key.Money < 0 select pr.Value).ToList();
         }
     }
 }
