@@ -10,8 +10,6 @@
         public int MarketPrice { get; } // Розничная цена
         public int WholesalePrice { get; } // Цена закупки
 
-      
-
         public Product(string Name, int MarketPrice, int WholesalePrice, string Category, int Quantity,
             string Unit)
         {
@@ -23,5 +21,6 @@
             this.Quantity = Quantity;
             this.id = id; //TODO:: добавить id 
         }
+        public Product() { }
     }
 }

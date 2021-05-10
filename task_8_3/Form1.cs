@@ -82,6 +82,7 @@ namespace task_8_3
         // купить партию товара 
         private void button5_Click(object sender, EventArgs e)
         {
+            
             label13.Text = String.Empty;
             var strProd = textBox2.Text.Split(' ');
             foreach (var pr in strProd)

@@ -19,8 +19,7 @@ namespace task_8_3
 
         private void button2_Click(object sender, EventArgs e)
         {
-            _store.SortByMarketPrice();
-            ShowInfo();
+            ShowInfo(_store.SortByMarketPrice());
         }
         
         private void ShowInfo()
@@ -46,7 +45,7 @@ namespace task_8_3
                 dataGridView1.Rows.Add("Категория:");
                 dataGridView1.Rows[i+4].Cells["Column2"].Value = prod.Category;
                 
-                dataGridView1.Rows.Add("Объем товара:");
+                dataGridView1.Rows.Add("Объём товара:");
                 dataGridView1.Rows[i+5].Cells["Column2"].Value = prod.Quantity;
                
                 dataGridView1.Rows.Add("Единица измерения");

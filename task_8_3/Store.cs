@@ -12,9 +12,14 @@ using System.Windows.Forms;
 обеспечивать выполнение операций по реализации товара с указанием даты
 совершения операции, подсчета выручки за указанный период времени,
 поступления повой партии товара, а также по формированию полного списка
-имеющихся товаров с указанием их объема В этом списке предусмотреть
-возможность группировки по товаров по категориям. Создать отдельные формы для
-экземпляров класса Store и класса Product.*/
+имеющихся товаров с указанием их объема  В этом списке предусмотреть возможность
+группировки товаров по категориям. Создать отдельные формы для экземпляров
+класса Store и класса Product*/
+
+/*Реализация товара должна
+сопровождаться генерацией события, результатом обработки которого должен
+быть отчет о сделанной покупке*/
+
 
 namespace task_8_3
 {
@@ -22,8 +27,9 @@ namespace task_8_3
     {
         private List<Product> _products = new List<Product>();
         private List<Date> _date = new List<Date>();
+        private Dictionary<Date, Product> _purchase = new Dictionary<Date, Product>(); 
         public int Money { set; get; }
-
+        
         public void BuyNewProducts(Product product, string date)
         {
             int money = 0;
@@ -31,55 +37,54 @@ namespace task_8_3
             money -= product.WholesalePrice;
             Money -= product.WholesalePrice;
             _date.Add(new Date(money, date));
+            _purchase.Add(_date[_date.Count-1], product);
         }
 
-        public void SortByMarketPrice()
+        public IOrderedEnumerable<Product> SortByMarketPrice()
         {
-            for (int i = 1; i < _products.Count; i++)
-            {
-                for (int j = i; j > 0 && _products[j - 1].MarketPrice < _products[j].MarketPrice; j--)
-                {
-                    Product tmp = _products[j - 1];
-                    _products[j - 1] = _products[j];
-                    _products[j] = tmp;
-                }
-            }
+            var query = from prod in _products
+                orderby prod.MarketPrice
+                select prod;
+            return query;
         }
 
         public IOrderedEnumerable<Product> SortByAlphabet()
         {
-           var query = from prod in _products 
-                orderby prod.Name.Substring(0, 1)  
-                select prod;
-           return query;
-        }
-        
-        public IOrderedEnumerable<Product> SortByCategory()
-        {
-            var query = from prod in _products 
-                orderby prod.Category.Substring(0, 1)  
+            var query = from prod in _products
+                orderby prod.Name.Substring(0, 1)
                 select prod;
             return query;
         }
-        
+
+        public IOrderedEnumerable<Product> SortByCategory()
+        {
+            var query = from prod in _products
+                orderby prod.Category.Substring(0, 1)
+                select prod;
+            return query;
+        }
+
         public void SellAllProducts(string product, string date)
         {
             int money = 0;
-
+            Product tempProduct = new Product();
             foreach (var pr in _products.Where(pr => pr.Name.Equals(product)))
             {
                 money += pr.MarketPrice * pr.Quantity;
                 Money += pr.MarketPrice * pr.Quantity;
+                tempProduct = pr;
                 _products.Remove(pr);
                 break;
             }
-
             _date.Add(new Date(money, date));
+            _purchase.Add(_date[_date.Count-1], tempProduct);
+
         }
 
         public void SellProducts(string product, string date, int amount, Label label)
         {
-            int money = 0; 
+            int money = 0;
+            Product tempProduct = new Product();
             foreach (var pr in _products.Where(pr => pr.Name.Equals(product)))
             {
                 if (pr.Quantity < amount)
@@ -88,13 +93,18 @@ namespace task_8_3
                     label.Text = "Вы выкупили весь товар, больше нет ";
                     return;
                 }
+
                 money += pr.MarketPrice * amount;
                 Money += pr.MarketPrice * amount;
                 pr.Quantity -= amount;
+                tempProduct = pr;
+                tempProduct.Quantity = amount;
+
             }
-            this._date.Add(new Date(money, date));
+            _date.Add(new Date(money, date));
+            _purchase.Add(_date[_date.Count-1], tempProduct);
         }
-        
+
         //Выручка по периодам
         public int Revenue(string date1, string date2)
         {
@@ -102,7 +112,7 @@ namespace task_8_3
                     DateCalculation.DateToNumber(item.DateOfOperation), DateCalculation.DateToNumber(date2)))
                 .Sum(item => item.Money);
         }
-        
+
         public Store(string path, int Money)
         {
             this.Money = Money;
